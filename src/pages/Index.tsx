@@ -16,51 +16,51 @@ const Index = () => {
   const [isScreenShare, setIsScreenShare] = useState(false);
 
   const servers = [
-    { id: 1, name: 'Космическая станция', avatar: '🚀', color: 'text-neon-blue', online: 42 },
-    { id: 2, name: 'Игровой центр', avatar: '🎮', color: 'text-neon-purple', online: 128 },
-    { id: 3, name: 'Работа', avatar: '💼', color: 'text-neon-cyan', online: 23 },
-    { id: 4, name: 'Друзья', avatar: '👥', color: 'text-neon-pink', online: 8 },
+    { id: 1, name: 'Anaphora Official', avatar: '🏠', color: 'text-neon-blue', online: 256 },
+    { id: 2, name: 'Gaming Hub', avatar: '🎮', color: 'text-neon-purple', online: 1024 },
+    { id: 3, name: 'Dev Community', avatar: '💻', color: 'text-neon-cyan', online: 89 },
+    { id: 4, name: 'Music & Chill', avatar: '🎵', color: 'text-neon-pink', online: 67 },
   ];
 
   const channels = [
-    { id: 'general', name: 'общий', type: 'text', users: 42, unread: 3 },
-    { id: 'random', name: 'случайное', type: 'text', users: 18, unread: 0 },
-    { id: 'announcements', name: 'объявления', type: 'text', users: 156, unread: 1 },
-    { id: 'voice-lounge', name: 'голосовая гостиная', type: 'voice', users: 5, limit: 10 },
-    { id: 'game-room', name: 'игровая комната', type: 'voice', users: 8, limit: 15 },
-    { id: 'conference', name: 'конференц-зал', type: 'voice', users: 12, limit: 50 },
-    { id: 'stream-room', name: 'стрим-комната', type: 'stream', users: 234, viewers: 1200 },
+    { id: 'general', name: 'general', type: 'text', users: 42, unread: 3 },
+    { id: 'random', name: 'random', type: 'text', users: 18, unread: 0 },
+    { id: 'announcements', name: 'announcements', type: 'text', users: 156, unread: 1 },
+    { id: 'voice-lounge', name: 'Voice Lounge', type: 'voice', users: 5, limit: 10 },
+    { id: 'game-room', name: 'Game Room', type: 'voice', users: 8, limit: 15 },
+    { id: 'conference', name: 'Conference Hall', type: 'voice', users: 12, limit: 50 },
+    { id: 'stream-room', name: 'Stream Room', type: 'stream', users: 234, viewers: 1200 },
   ];
 
   const voiceUsers = [
-    { id: 1, name: 'Космонавт Алекс', speaking: true, muted: false, deafened: false, streaming: false },
-    { id: 2, name: 'Пилот Мария', speaking: false, muted: false, deafened: false, streaming: true },
-    { id: 3, name: 'Инженер Дима', speaking: false, muted: true, deafened: false, streaming: false },
-    { id: 4, name: 'Доктор Анна', speaking: false, muted: false, deafened: true, streaming: false },
-    { id: 5, name: 'Капитан Иван', speaking: true, muted: false, deafened: false, streaming: false },
+    { id: 1, name: 'Alex', speaking: true, muted: false, deafened: false, streaming: false },
+    { id: 2, name: 'Maria', speaking: false, muted: false, deafened: false, streaming: true },
+    { id: 3, name: 'Dima', speaking: false, muted: true, deafened: false, streaming: false },
+    { id: 4, name: 'Anna', speaking: false, muted: false, deafened: true, streaming: false },
+    { id: 5, name: 'Ivan', speaking: true, muted: false, deafened: false, streaming: false },
   ];
 
   const onlineUsers = [
-    { id: 1, name: 'Космонавт Алекс', status: 'online', role: 'admin', activity: 'В голосовом канале' },
-    { id: 2, name: 'Пилот Мария', status: 'streaming', role: 'mod', activity: 'Стримит игру' },
-    { id: 3, name: 'Инженер Дима', status: 'gaming', role: 'user', activity: 'Играет в космическую игру' },
-    { id: 4, name: 'Доктор Анна', status: 'online', role: 'user', activity: 'Читает документацию' },
-    { id: 5, name: 'Капитан Иван', status: 'away', role: 'user', activity: 'Отошел' },
-    { id: 6, name: 'Навигатор Света', status: 'dnd', role: 'user', activity: 'Не беспокоить' },
+    { id: 1, name: 'Alex', status: 'online', role: 'admin', activity: 'In voice channel' },
+    { id: 2, name: 'Maria', status: 'streaming', role: 'mod', activity: 'Streaming game' },
+    { id: 3, name: 'Dima', status: 'gaming', role: 'user', activity: 'Playing CS2' },
+    { id: 4, name: 'Anna', status: 'online', role: 'user', activity: 'Reading docs' },
+    { id: 5, name: 'Ivan', status: 'away', role: 'user', activity: 'Away' },
+    { id: 6, name: 'Sveta', status: 'dnd', role: 'user', activity: 'Do not disturb' },
   ];
 
   const messages = [
-    { id: 1, user: 'Космонавт Алекс', message: 'Всем привет! Начинаем планерку по проекту 🚀', time: '14:32', role: 'admin', reactions: ['👍', '🚀'] },
-    { id: 2, user: 'Пилот Мария', message: 'Готова к старту! Все системы в норме ✅', time: '14:35', role: 'mod', reactions: ['✅', '👨‍🚀'] },
-    { id: 3, user: 'Инженер Дима', message: 'Новая версия движка готова к тестированию. Посмотрите: https://github.com/space-engine/v2.0', time: '14:37', role: 'user', reactions: ['🔧', '⚡'] },
-    { id: 4, user: 'Доктор Анна', message: 'Медицинские показатели экипажа в норме. Все готовы к длительному полету', time: '14:40', role: 'user', reactions: ['❤️', '🏥'] },
+    { id: 1, user: 'Alex', message: 'Hey everyone! Welcome to Anaphora 🎉', time: '14:32', role: 'admin', reactions: ['👍', '🔥'] },
+    { id: 2, user: 'Maria', message: 'Starting stream in 5 minutes! Join voice if you want to chat ✅', time: '14:35', role: 'mod', reactions: ['✅', '🎮'] },
+    { id: 3, user: 'Dima', message: 'New update is ready for testing. Check it out: https://github.com/anaphora/v3.0', time: '14:37', role: 'user', reactions: ['🔧', '⚡'] },
+    { id: 4, user: 'Anna', message: 'Great work on the new features! The UI looks amazing 🎨', time: '14:40', role: 'user', reactions: ['❤️', '🎨'] },
   ];
 
   const videoParticipants = [
-    { id: 1, name: 'Космонавт Алекс', speaking: true, muted: false, camera: true, screen: false },
-    { id: 2, name: 'Пилот Мария', speaking: false, muted: false, camera: true, screen: true },
-    { id: 3, name: 'Инженер Дима', speaking: false, muted: true, camera: false, screen: false },
-    { id: 4, name: 'Доктор Анна', speaking: false, muted: false, camera: true, screen: false },
+    { id: 1, name: 'Alex', speaking: true, muted: false, camera: true, screen: false },
+    { id: 2, name: 'Maria', speaking: false, muted: false, camera: true, screen: true },
+    { id: 3, name: 'Dima', speaking: false, muted: true, camera: false, screen: false },
+    { id: 4, name: 'Anna', speaking: false, muted: false, camera: true, screen: false },
   ];
 
   return (
@@ -69,9 +69,16 @@ const Index = () => {
       <header className="bg-card border-b border-border glass-effect sticky top-0 z-50">
         <div className="flex items-center justify-between h-16 px-6">
           <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold font-montserrat bg-neon-gradient bg-clip-text text-transparent">
-              SpaceChat Pro
-            </h1>
+            <div className="flex items-center space-x-3">
+              <img 
+                src="https://cdn.poehali.dev/files/4b5ec539-bd7c-4a37-a1a3-a57a3df286aa.png" 
+                alt="Anaphora Logo" 
+                className="w-8 h-8 object-contain"
+              />
+              <h1 className="text-2xl font-bold font-montserrat bg-neon-gradient bg-clip-text text-transparent">
+                Anaphora
+              </h1>
+            </div>
             <Badge variant="outline" className="neon-border text-neon-cyan animate-neon-pulse">
               v3.0 Beta
             </Badge>
@@ -124,11 +131,18 @@ const Index = () => {
         {/* Channels Sidebar */}
         <div className="w-80 bg-card border-r border-border glass-effect flex flex-col">
           <div className="p-4 border-b border-border">
-            <h2 className="font-montserrat text-lg font-semibold mb-4 text-neon-cyan">
-              🚀 Космическая станция
-            </h2>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="https://cdn.poehali.dev/files/4b5ec539-bd7c-4a37-a1a3-a57a3df286aa.png" 
+                alt="Server Icon" 
+                className="w-6 h-6 object-contain"
+              />
+              <h2 className="font-montserrat text-lg font-semibold text-neon-cyan">
+                Anaphora Official
+              </h2>
+            </div>
             <div className="text-sm text-muted-foreground mb-4">
-              {onlineUsers.filter(u => u.status === 'online').length} онлайн • {onlineUsers.length} участников
+              {onlineUsers.filter(u => u.status === 'online').length} online • {onlineUsers.length} members
             </div>
           </div>
           
@@ -138,7 +152,7 @@ const Index = () => {
               <div>
                 <h3 className="text-xs font-semibold text-muted-foreground uppercase mb-2 flex items-center">
                   <Icon name="Hash" size={12} className="mr-2" />
-                  Текстовые каналы
+                  Text Channels
                 </h3>
                 <div className="space-y-1">
                   {channels.filter(c => c.type === 'text').map((channel) => (
@@ -174,7 +188,7 @@ const Index = () => {
               <div>
                 <h3 className="text-xs font-semibold text-muted-foreground uppercase mb-2 flex items-center">
                   <Icon name="Volume2" size={12} className="mr-2" />
-                  Голосовые каналы
+                  Voice Channels
                 </h3>
                 <div className="space-y-1">
                   {channels.filter(c => c.type === 'voice').map((channel) => (
@@ -232,7 +246,7 @@ const Index = () => {
               <div>
                 <h3 className="text-xs font-semibold text-muted-foreground uppercase mb-2 flex items-center">
                   <Icon name="Video" size={12} className="mr-2" />
-                  Стримы
+                  Streams
                 </h3>
                 <div className="space-y-1">
                   {channels.filter(c => c.type === 'stream').map((channel) => (
@@ -247,7 +261,7 @@ const Index = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Badge variant="outline" className="text-xs text-neon-pink">
-                          {channel.viewers} зрителей
+                          {channel.viewers} viewers
                         </Badge>
                       </div>
                     </button>
@@ -266,8 +280,8 @@ const Index = () => {
                     <AvatarFallback className="bg-neon-green text-white text-xs">ТЫ</AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-medium">Вы в голосовом канале</p>
-                    <p className="text-xs text-muted-foreground">голосовая гостиная</p>
+                    <p className="text-sm font-medium">Connected to voice</p>
+                    <p className="text-xs text-muted-foreground">Voice Lounge</p>
                   </div>
                 </div>
                 <Button
@@ -342,7 +356,7 @@ const Index = () => {
                               {participant.name[0]}
                             </AvatarFallback>
                           </Avatar>
-                          <p className="text-sm text-gray-400">Камера выключена</p>
+                          <p className="text-sm text-gray-400">Camera off</p>
                         </div>
                       )}
                     </div>
@@ -373,7 +387,7 @@ const Index = () => {
                   <Icon name="Hash" size={20} className="text-neon-cyan" />
                   <h3 className="font-montserrat text-xl font-semibold">{activeChannel}</h3>
                   <Badge variant="outline" className="neon-border text-neon-purple">
-                    {channels.find(c => c.id === activeChannel)?.users} активных
+                    {channels.find(c => c.id === activeChannel)?.users} online
                   </Badge>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -452,7 +466,7 @@ const Index = () => {
                     <Icon name="Plus" size={16} className="text-neon-cyan cursor-pointer" />
                     <input
                       type="text"
-                      placeholder={`Отправить сообщение в #${activeChannel}`}
+                      placeholder={`Message #${activeChannel}`}
                       className="flex-1 bg-transparent outline-none text-sm"
                     />
                     <div className="flex items-center space-x-1">
@@ -480,12 +494,12 @@ const Index = () => {
           <div className="p-4">
             <Tabs defaultValue="online" className="w-full">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="online">Онлайн</TabsTrigger>
-                <TabsTrigger value="all">Все</TabsTrigger>
+                <TabsTrigger value="online">Online</TabsTrigger>
+                <TabsTrigger value="all">All</TabsTrigger>
               </TabsList>
               <TabsContent value="online" className="space-y-3 mt-4">
                 <h3 className="font-montserrat text-sm font-semibold text-neon-purple">
-                  Онлайн — {onlineUsers.filter(u => u.status === 'online').length}
+                  Online — {onlineUsers.filter(u => u.status === 'online').length}
                 </h3>
                 {onlineUsers.filter(u => u.status === 'online').map((user) => (
                   <div key={user.id} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-muted transition-colors">
@@ -506,7 +520,7 @@ const Index = () => {
               </TabsContent>
               <TabsContent value="all" className="space-y-3 mt-4">
                 <h3 className="font-montserrat text-sm font-semibold text-neon-purple">
-                  Все участники — {onlineUsers.length}
+                  All Members — {onlineUsers.length}
                 </h3>
                 {onlineUsers.map((user) => (
                   <div key={user.id} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-muted transition-colors">
